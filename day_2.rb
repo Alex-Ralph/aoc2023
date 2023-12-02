@@ -2,9 +2,9 @@ FILE = "day_2.txt"
 Max_red, Max_green, Max_blue = 12, 13, 14
 
 def is_possible?(game)
-	reds = game.scan(/\d+ r/).map(&:to_i).max
-	greens = game.scan(/\d+ g/).map(&:to_i).max
-	blues = game.scan(/\d+ b/).map(&:to_i).max
+	reds = game.scan(/\d+ r/).map(&:to_i).max || 0
+	greens = game.scan(/\d+ g/).map(&:to_i).max || 0
+	blues = game.scan(/\d+ b/).map(&:to_i).max  || 0
 	(reds <= Max_red and greens <= Max_green and blues <= Max_blue)
 end
 
@@ -14,9 +14,9 @@ def part_one
 end
 
 def game_power(game)
-	reds = game.scan(/\d+ r/).map(&:to_i).max
-	greens = game.scan(/\d+ g/).map(&:to_i).max
-	blues = game.scan(/\d+ b/).map(&:to_i).max
+	reds = game.scan(/\d+ r/).map(&:to_i).max || 0
+	greens = game.scan(/\d+ g/).map(&:to_i).max || 0
+	blues = game.scan(/\d+ b/).map(&:to_i).max || 0
 	reds * greens * blues
 end
 
